@@ -6,9 +6,9 @@ Polarity's EchoTrail integration leverages the EchoTrail Insights REST API to pr
 
 Please see [https://www.echotrail.io/](https://www.echotrail.io/) for more information.
 
-| ![image](images/overlay.png) |
-|------------------------------|
-| *SHA256 Example*             |
+| ![image](images/overlay.png) | ![image](images/overlay-exe.png)
+|------------------------------|----|
+| *SHA256 Example*             | * EXE Example* |
 
 ## Integration Options
 
