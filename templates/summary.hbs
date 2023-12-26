@@ -1,0 +1,15 @@
+{{#each block.data.summary as | tag |}}
+    {{#if tag.text}}
+        <span {{on "click" (optional this.scrollToIntegration)}} class="danger-summary-tag integration-summary-tag integration-background-color integration-border-color">
+            <span class="tag acronym integration-text-bold-color">{{block.acronym}}</span>
+            <span class="icon-container {{join tag.classes " "}}">{{fa-icon icon=tag.icon fixedWidth=true}}</span>
+            <span class="data integration-text-color">{{tag.text}}</span>
+        </span>
+    {{else}}
+        <span {{on "click" (optional this.scrollToIntegration)}} class="integration-summary-tag integration-background-color integration-border-color">
+            <span class="acronym integration-text-bold-color">{{block.acronym}}</span>
+            <span class="integration-text-color">{{tag}}</span>
+        </span>
+    {{/if}}
+{{/each}}
+
