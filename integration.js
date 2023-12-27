@@ -78,10 +78,17 @@ function doLookup(entities, options, cb) {
         Logger.trace({ body: body, status: res ? res.statusCode : 'N/A' }, 'Received Response');
 
         if (res.statusCode === 200) {
-          done(null, {
-            entity: entity,
-            body: body
-          });
+          if (isMiss(body) && !options.showMisses) {
+            done(null, {
+              entity,
+              body: null
+            });
+          } else {
+            done(null, {
+              entity,
+              body
+            });
+          }
         } else if (res.statusCode === 403) {
           done({
             detail: `Invalid API Key`,
@@ -134,13 +141,20 @@ function doLookup(entities, options, cb) {
   });
 }
 
+// If there is a message then we didn't get a result back
+// The message says the executable has not been observed
+// Note that the API still returns a 200 in this case
+function isMiss(body) {
+  if (body.message) {
+    return true;
+  }
+  return false;
+}
+
 function getSummaryTags(body, entity, options) {
   const tags = [];
 
-  // If there is a message then we didn't get a result back
-  // The message typically says the executable has not been observed
-  // Note that the API still returns a 200
-  if (body.message) {
+  if (isMiss(body)) {
     tags.push(`Not observed`);
   } else {
     // string to number conversion required for v4 servers which may not send a numberic value

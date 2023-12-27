@@ -103,6 +103,16 @@ module.exports = {
       adminOnly: true
     },
     {
+      key: 'showMisses',
+      name: 'Show Files that have not been Observed',
+      description:
+        "If checked, the integration will return a 'Not Observed' result for SHA256 hashes and files that have not been observed by EchoTrail.",
+      default: true,
+      type: 'boolean',
+      userCanEdit: false,
+      adminOnly: true
+    },
+    {
       key: 'suspiciousThreshold',
       name: 'Anomalous Process Threshold for SHA256',
       description:
