@@ -16,6 +16,10 @@ Please see [https://www.echotrail.io/](https://www.echotrail.io/) for more infor
 
 API Key for the EchoTrail API
 
+### Show Files that have not been Observed
+
+If checked, the integration will return a 'Not Observed' result for SHA256 hashes and files that have not been observed by EchoTrail.
+
 ### Anomalous Process Threshold for SHA256
 
 SHA256 values with an EchoTrail prevalence score below or equal to this value will be flagged as anomalous. Defaults to 20. Set to -1 to disable. This option should be visible to all users. This option is only applicable to SHA256 lookups.
