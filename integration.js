@@ -181,6 +181,32 @@ function validateOptions(userOptions, cb) {
     });
   }
 
+  if (+userOptions.suspiciousThreshold.value < -1 || +userOptions.suspiciousThreshold.value > 100) {
+    errors.push({
+      key: 'suspiciousThreshold',
+      message: `The Anomalous Process Threshold (${userOptions.suspiciousThreshold.value}) must be between -1 and 100`
+    });
+  }
+
+  if (+userOptions.commonThreshold.value < -1 || +userOptions.commonThreshold.value > 100) {
+    errors.push({
+      key: 'commonThreshold',
+      message: `The Common Process Threshold (${userOptions.commonThreshold.value}) must be between -1 and 100`
+    });
+  }
+
+  if (+userOptions.suspiciousThreshold.value > +userOptions.commonThreshold.value) {
+    errors.push({
+      key: 'suspiciousThreshold',
+      message: `The Anomalous Process Threshold (${userOptions.suspiciousThreshold.value}) must be less than the Common Process Threshold (${userOptions.commonThreshold.value})`
+    });
+
+    errors.push({
+      key: 'commonThreshold',
+      message: `The Common Process Threshold (${userOptions.commonThreshold.value}) must be greater than the Anomalous Process Threshold (${userOptions.suspiciousThreshold.value})`
+    });
+  }
+
   cb(null, errors);
 }
 
