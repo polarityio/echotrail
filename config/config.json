@@ -65,8 +65,8 @@
     },
     {
       "key": "suspiciousThreshold",
-      "name": "Anomalous Process Threshold for SHA256",
-      "description": "SHA256 values with an EchoTrail prevalence score below or equal to this value will be flagged as anomalous. Defaults to 20. Set to -1 to disable. This option should be visible to all users. This option is only applicable to SHA256 lookups.",
+      "name": "Anomalous Process Threshold for Hashes",
+      "description": "Hashes with an EchoTrail prevalence score below or equal to this value will be flagged as anomalous. Defaults to 20. Set to -1 to disable. This option should be visible to all users. This option is only applicable to SHA256 and MD5 lookups.",
       "default": 20,
       "type": "number",
       "userCanEdit": false,
@@ -74,8 +74,8 @@
     },
     {
       "key": "commonThreshold",
-      "name": "Common Process Threshold for SHA256",
-      "description": "SHA256 values with an EchoTrail prevalence score above or equal to this value will be flagged as a common process. Defaults to 80.  Set to -1 to disable. This option should be visible to all users. This option is only applicable to SHA256 lookups.",
+      "name": "Common Process Threshold for Hashes",
+      "description": "Hashes with an EchoTrail prevalence score above or equal to this value will be flagged as a common process. Defaults to 80.  Set to -1 to disable. This option should be visible to all users. This option is only applicable to SHA256 and MD5 lookups.",
       "default": 80,
       "type": "number",
       "userCanEdit": false,
