@@ -26,11 +26,11 @@ module.exports = {
    */
   description:
     'Access data points detailing what processes are, how they typically behave, who wrote them, and Security Intel on how they are used by threat actors.',
-  entityTypes: ['SHA256'],
+  entityTypes: ['SHA256', 'MD5'],
   customTypes: [
     {
       key: 'windowsExecutableFile',
-      regex: /[\w-]{2,256}\.(?:exe)/
+      regex: /[\w\-\.]{2,256}\.(?:exe)/
     }
   ],
   /**
