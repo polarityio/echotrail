@@ -157,7 +157,7 @@ function getSummaryTags(body, entity, options) {
   if (isMiss(body)) {
     tags.push(`Not observed`);
   } else {
-    // string to number conversion required for v4 servers which may not send a numberic value
+    // string to number conversion required for v4 servers which may not send a numeric value
     if (+options.commonThreshold != -1 && body.eps >= options.commonThreshold && entity.isHash) {
       tags.push({
         text: `EPS: ${body.eps}`,
