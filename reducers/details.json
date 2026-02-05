@@ -1,0 +1,36 @@
+{
+  "root": {
+    "path": "",
+    "on_null": "return_empty"
+  },
+  "pipeline": [
+    {
+      "op": "copy",
+      "from": "rank",
+      "to": "reduced_results.rank"
+    },
+    {
+      "op": "copy",
+      "from": "eps",
+      "to": "reduced_results.eps"
+    },
+    {
+      "op": "copy",
+      "from": "description",
+      "to": "reduced_results.description"
+    },
+    {
+      "op": "copy",
+      "from": "host_prev",
+      "to": "reduced_results.host_prev"
+    },
+    {
+      "op": "prune",
+      "strategy": "empty_values",
+      "target": "reduced_results"
+    }
+  ],
+  "output": {
+    "result": "$working.reduced_results"
+  }
+}
